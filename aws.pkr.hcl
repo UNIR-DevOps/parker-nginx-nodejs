@@ -1,6 +1,6 @@
 packer {
-    required_plugins = {
-        amazon {
+    required_plugins {
+        amazon = {
             version = ">= 0.0.2"
             source = "github.com/hashicorp/amazon"    
         }
@@ -18,7 +18,7 @@ source "amazon-ebs" "ubuntu_ami_image" {
             virtualization-type = "hvm"
         }
         most_recent = true
-        owners = [""]
+        owners = ["540587434366"]
         tags = {
             Name = "Ubuntu_Jammy_Golden_Image"
         }
