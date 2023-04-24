@@ -1,38 +1,90 @@
 #!/bin/bash
 
-curl -sL https://deb.nodesource.com/setup_14.x -o nodesource_setup.sh
-nano nodesource_setup.sh
-sudo bash nodesource_setup.sh
-sudo apt install nodejs
-sudo apt install build-essential
+# Actualizar el sistema
+sudo apt-get update
 
-sudo chmod -R 777 /var/www/node/hello.js
-sudo echo "const http = require('http');
-const hostname = 'localhost';
-const port = 3000;
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World !\n for LUIS ANDRES OLARTE ');
+# Instalar MongoDB
+sudo apt-get install -y mongodb
+
+# Iniciar el servicio de MongoDB
+sudo systemctl start mongodb
+sudo systemctl enable mongodb
+
+# Instalar Node.js y npm
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Instalar Express.js globalmente
+sudo npm install -g express
+
+# Instalar Angular globalmente
+sudo npm install -g @angular/cli
+
+# Instalar Nginx
+sudo apt-get install -y nginx
+
+# Configurar Nginx para el servidor MEAN
+sudo rm /etc/nginx/sites-available/default
+sudo touch /etc/nginx/sites-available/default
+
+# Escribir la configuración de Nginx en el archivo de configuración
+sudo tee -a /etc/nginx/sites-available/default > /dev/null <<EOT
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \$host;
+        proxy_cache_bypass \$http_upgrade;
+    }
+
+    location /api {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade \$http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host \$host;
+        proxy_cache_bypass \$http_upgrade;
+    }
+}
+EOT
+
+# Reiniciar Nginx
+sudo systemctl restart nginx
+
+# Crear una nueva aplicación Node.js
+mkdir my-mean-app
+cd my-mean-app
+npm init -y
+
+# Instalar Express.js y Mongoose para el backend
+npm install express mongoose
+
+# Crear archivo helloworld.js
+touch helloworld.js
+
+# Escribir código en helloworld.js
+echo "const express = require('express');
+const app = express();
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+  res.send('Hello World LUIS OLARTE!');
 });
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});" > /var/www/node/hello.js
-node /var/www/node/hello.js
 
-curl http://localhost:3000
+app.listen(PORT, () => {
+  console.log('LUIS OLARTE :) Server is running on port ' + PORT);
+});" > helloworld.js
 
-sudo npm install pm2@latest -g
-pm2 start /var/www/node/hello.js
-pm2 startup systemd
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u sammy --hp /home/sammy
-pm2 startup systemd
-pm2 save
-sudo systemctl start pm2-sammy
-systemctl status pm2-sammy
-pm2 stop app_name_or_id
-pm2 restart app_name_or_id
-pm2 list
-pm2 info app_name
-pm2 monit
-sudo nano /etc/nginx/sites-available/example.com
+# Instalar Angular para el frontend
+ng new client
+
+# Ejecutar la aplicación backend
+node helloworld.js &
+
+# Ejecutar la aplicación frontend
+cd client
+ng serve &
