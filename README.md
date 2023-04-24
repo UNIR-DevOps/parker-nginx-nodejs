@@ -31,3 +31,9 @@ Ejecuta el siguiente comando para inicializar la configuración de Packer en tu 
 ```powershell
 packer init .
 ```
+
+Al finalizar, ejecutar este comando:
+
+```powershell
+packer build aws.pkr.hcl
+```
