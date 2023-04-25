@@ -100,8 +100,8 @@ packer build aws.pkr.hcl
 
  Si todo se ejecutó sin errores, significa que has instalado correctamente el servidor MEAN (MongoDB, Express.js, Angular, Nginx, Node.js) y has creado un archivo de configuración de Nginx, así como un archivo de aplicación de ejemplo en Node.js. Ahora puedes acceder a tu servidor a través del nombre de dominio o la dirección IP que hayas configurado en la configuración de Nginx, y probar la funcionalidad de tu aplicación MEAN. Si tienes alguna pregunta o necesitas más ayuda, estaré encantado de asistirte.
 
+ Deberias ver algo similar a esto:
+
 ![Tipo de acceso](/resources/successfully.png)
 
- 
-  **¡Buena suerte!**
-
+**¡Buena suerte!**
