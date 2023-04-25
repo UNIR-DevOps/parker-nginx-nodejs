@@ -72,11 +72,13 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World LUIS OLARTE!');
+  res.send('Hello World LUIS OLARTE! \n');
+
+  console.log('LUIS OLARTE :) Solicitud exitosa ' + PORT + '\n');
 });
 
 app.listen(PORT, () => {
-  console.log('LUIS OLARTE :) Server is running on port ' + PORT);
+  console.log('LUIS OLARTE :) Servidor corriendo por el puerto' + PORT + '\n');
 });" > helloworld.js
 
 # Instalar Angular para el frontend
@@ -88,3 +90,13 @@ node helloworld.js &
 # Ejecutar la aplicación frontend
 cd client
 ng serve &
+
+sudo sleep 10
+
+# Solicitud de prueba nodejs
+curl http://localhost:3000
+
+sudo sleep 10
+
+# Solicitud de prueba direccionamiento puerto 80
+curl http://localhost
