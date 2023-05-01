@@ -1,5 +1,5 @@
 ﻿<!-- Para el código inicial del proyecto ver la siguiente ruta https://youtu.be/eMmRrpTrN0c -->
-# parker-nginx-nodejs
+# parker nginx nodejs
 
 Esta plantilla de Packer utiliza el builder de **Amazon EBS** para crear una imagen de **Amazon Machine Image (AMI)** de AWS. Luego, utiliza los provisioners de shell para instalar **Node.js, npm, pm2 y Nginx** en la instancia, clonar el repositorio de la aplicación Node.js desde la URL especificada, instalar las dependencias de la aplicación, iniciar la aplicación con pm2 y configurar pm2 y Nginx para que se inicien automáticamente en el arranque del sistema.
 
@@ -37,17 +37,17 @@ choco install packer
 
 **Paso 5:** En la sección de "Set permissions" (Establecer permisos), seleccionar "Attach existing policies directly" (Adjuntar directamente políticas existentes) y buscar la política necesaria para el usuario. Puedes buscarla por nombre o filtrar por categoría. Seleccionar la política requerida y hacer clic en "Next: Tags" (Siguiente: Etiquetas) cuando hayas terminado.
 
-![Permisos](/resources/Permiso.png)
+![Permisos](/resources/img/Permiso.png)
 
 **Paso 6:** Opcionalmente, puedes agregar etiquetas para el usuario en la sección "Add tags" (Agregar etiquetas). Una vez que hayas terminado, hacer clic en "Next: Review" (Siguiente: Revisar).
 
-![Clave de acceso](/resources/Acceso.png)
+![Clave de acceso](/resources/img/Acceso.png)
 
 **Paso 7:** Revisar la configuración del usuario en la página de revisión. Si todo está correcto, hacer clic en "Create user" (Crear usuario) para crear el usuario.
 
 **Paso 8:** En la página de confirmación, hacer clic en **"Download .csv"** (Descargar .csv) para descargar un archivo CSV que contiene la clave de acceso y el secreto de acceso del usuario. Guardar esta información en un lugar seguro, ya que no podrás ver la clave de acceso nuevamente.
 
-![Tipo de acceso](/resources/TipoAcceso.png)
+![Tipo de acceso](/resources/img/TipoAcceso.png)
 
 ## 3. Variables de entorno
 
@@ -75,7 +75,7 @@ En la ventana "Propiedades del sistema" que se abre, selecciona la pestaña "Opc
 Haz clic en el botón "Variables de entorno" en la parte inferior de la ventana.
 
 **Paso 3:** Configurar las variables de entorno
-![Variables de entorno](/resources/Variables.png)
+![Variables de entorno](/resources/img/Variables.png)
 
 **Paso 4:** Aplicar los cambios
 
@@ -102,6 +102,6 @@ packer build aws.pkr.hcl
 
  Deberias ver algo similar a esto:
 
-![Tipo de acceso](/resources/successfully.png)
+![Tipo de acceso](/resources/img/successfully.png)
 
 **¡Buena suerte!**
