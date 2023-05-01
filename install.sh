@@ -4,21 +4,24 @@
 sudo apt-get update
 
 # Instalar MongoDB
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
 sudo apt-get install -y mongodb
 
 # Iniciar el servicio de MongoDB
 sudo systemctl start mongodb
+sudo systemctl status mongodb
 sudo systemctl enable mongodb
 
 # Instalar Node.js y npm
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs npm
 
-# Instalar Express.js globalmente
-sudo npm install -g express
+echo "* NodeJS Versión: "
+node -v
 
-# Instalar Angular globalmente
-sudo npm install -g @angular/cli
+echo "* NPM Versión: "
+npm -v
 
 # Instalar Nginx
 sudo apt-get install -y nginx
@@ -42,7 +45,7 @@ server {
     }
 
     location /api {
-        proxy_pass http://127.0.0.1:4000;
+        proxy_pass http://127.0.0.1:4200;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
         proxy_set_header Connection 'upgrade';
@@ -56,46 +59,25 @@ EOT
 sudo systemctl restart nginx
 
 # Crear una nueva aplicación Node.js
-mkdir my-mean-app
+sudo mkdir my-mean-app
 cd my-mean-app
-npm init -y
 
-# Instalar Express.js y Mongoose para el backend
-npm install express mongoose
+# Clonar el repositorio de Node.js y MongoDB
+sudo git clone https://github.com/UNIR-DevOps/default_nodejs_mongodb_server.git
+cd default_nodejs_mongodb_server
 
-# Crear archivo helloworld.js
-touch helloworld.js
-
-# Escribir código en helloworld.js
-echo "const express = require('express');
-const app = express();
-const PORT = 3000;
-
-app.get('/', (req, res) => {
-  res.send('Hello World LUIS OLARTE :) !!! \n');
-  console.log('LUIS OLARTE :) Solicitud exitosa ' + PORT + '\n');
-});
-
-app.listen(PORT, () => {
-  console.log('LUIS OLARTE :) Servidor corriendo por el puerto ' + PORT);
-});" > helloworld.js
-
-# Instalar Angular para el frontend
-ng new client
+# Instalar 
+sudo npm install -g
 
 # Ejecutar la aplicación backend
-node helloworld.js &
+sudo node index.js &
 
-# Ejecutar la aplicación frontend
-cd client
-ng serve &
-
-sudo sleep 30
-
-# Solicitud de prueba nodejs
-curl http://localhost:3000
-
-sudo sleep 30
-
-# Solicitud de prueba direccionamiento puerto 80
-curl http://localhost
+# Comprobar que la aplicación se ha iniciado correctamente
+sleep 10
+if ps aux | grep node | grep 3000; then
+  echo "La aplicación se ha iniciado correctamente."
+  exit 0
+else
+  echo "No se pudo iniciar la aplicación."
+  exit 1
+fi
