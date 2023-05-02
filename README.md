@@ -1,7 +1,5 @@
 ﻿<!-- Para el código inicial del proyecto ver la siguiente ruta https://youtu.be/eMmRrpTrN0c -->
 
-## Toda esta documentación esta disponible en el sitio https://github.com/UNIR-DevOps/parker-nginx-nodejs
-
 # parker nginx nodejs
 
 
