@@ -1,0 +1,544 @@
+PS E:\DevOps\parker-nginx-nodejs> packer build  aws.pkr.hcl
+build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: output will be in this color.
+
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Prevalidating any provided VPC information
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Prevalidating AMI Name: ami_laoz_20230501T171702Z
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Found Image ID: ami-0e4a0595b254f1a4f
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Creating temporary keypair: packer_644ff40e-7bc2-ed5a-5ff7-5d875cdff993
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Creating temporary security group for this instance: packer_644ff411-19c6-e631-25d7-c132f7f4134b
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Authorizing access to port 22 from [0.0.0.0/0] in the temporary security groups...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Launching a source AWS instance...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Instance ID: i-071a31fd0acb4bb5f
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Waiting for instance (i-071a31fd0acb4bb5f) to become ready...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Using SSH communicator to connect: 54.186.79.218
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Waiting for SSH to become available...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Connected to SSH!
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Uploading resources/files/server.js => /home/ubuntu/server.js
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Uploading resources/files/default => /home/ubuntu/default
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Provisioning with shell script: resources/files/install.sh
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- Inicio script -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- apt-get update -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:1 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:2 http://archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:3 http://security.ubuntu.com/ubuntu jammy-security/main amd64 Packages [800 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:4 http://archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:5 http://archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:6 http://archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1395 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:7 http://security.ubuntu.com/ubuntu jammy-security/main Translation-en [156 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:8 http://security.ubuntu.com/ubuntu jammy-security/main amd64 c-n-f Metadata [9144 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:9 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 Packages [830 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:10 http://security.ubuntu.com/ubuntu jammy-security/restricted Translation-en [131 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:11 http://security.ubuntu.com/ubuntu jammy-security/restricted amd64 c-n-f Metadata [604 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:12 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 Packages [729 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:13 http://security.ubuntu.com/ubuntu jammy-security/universe Translation-en [121 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:14 http://security.ubuntu.com/ubuntu jammy-security/universe amd64 c-n-f Metadata [14.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:15 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 Packages [34.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:16 http://archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:17 http://archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:18 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:19 http://archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18.6 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:20 http://archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:21 http://archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:22 http://security.ubuntu.com/ubuntu jammy-security/multiverse Translation-en [6464 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:23 http://security.ubuntu.com/ubuntu jammy-security/multiverse amd64 c-n-f Metadata [252 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:24 http://archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:25 http://archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:26 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:27 http://archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:28 http://archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:29 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1069 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:30 http://archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [221 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:31 http://archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [14.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:32 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [873 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:33 http://archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [137 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:34 http://archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [604 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:35 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [912 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:36 http://archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [183 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:37 http://archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [18.7 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:38 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [39.0 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:39 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [8736 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:40 http://archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [468 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:41 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [40.9 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:42 http://archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [10.2 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:43 http://archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:44 http://archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:45 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [22.2 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:46 http://archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [15.0 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:47 http://archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [548 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:48 http://archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Fetched 29.5 MB in 8s (3843 kB/s)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- install nodejs -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Installing the NodeSource Node.js 16.x repo...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Populating apt-get cache...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + apt-get update
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy InRelease [270 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease [108 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hit:4 http://security.ubuntu.com/ubuntu jammy-security InRelease
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:5 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 Packages [1395 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:6 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main Translation-en [510 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:7 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 c-n-f Metadata [30.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/restricted amd64 Packages [129 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/restricted Translation-en [18.6 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/restricted amd64 c-n-f Metadata [488 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages [14.1 MB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe Translation-en [5652 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:13 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/universe amd64 c-n-f Metadata [286 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:14 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 Packages [217 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:15 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse Translation-en [112 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:16 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/multiverse amd64 c-n-f Metadata [8372 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:17 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 Packages [1069 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:18 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main Translation-en [221 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:19 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 c-n-f Metadata [14.3 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:20 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 Packages [873 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:21 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted Translation-en [137 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:22 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/restricted amd64 c-n-f Metadata [604 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:23 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 Packages [912 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:24 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe Translation-en [183 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:25 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 c-n-f Metadata [18.7 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:26 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 Packages [39.0 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:27 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse Translation-en [8736 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:28 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 c-n-f Metadata [468 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:29 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 Packages [40.9 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:30 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main Translation-en [10.2 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:31 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/main amd64 c-n-f Metadata [388 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:32 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/restricted amd64 c-n-f Metadata [116 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:33 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 Packages [22.2 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:34 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe Translation-en [15.0 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:35 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 c-n-f Metadata [548 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:36 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports/multiverse amd64 c-n-f Metadata [116 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Fetched 26.5 MB in 5s (5723 kB/s)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Confirming "jammy" is supported...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + curl -sLf -o /dev/null 'https://deb.nodesource.com/node_16.x/dists/jammy/Release'
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Adding the NodeSource signing key to your keyring...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | tee /usr/share/keyrings/nodesource.gpg >/dev/null
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Creating apt sources list file for the NodeSource Node.js 16.x repo...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + echo 'deb [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main' > /etc/apt/sources.list.d/nodesource.list
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + echo 'deb-src [signed-by=/usr/share/keyrings/nodesource.gpg] https://deb.nodesource.com/node_16.x jammy main' >> /etc/apt/sources.list.d/nodesource.list
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Running `apt-get update` for you...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: + apt-get update
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hit:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy InRelease
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hit:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates InRelease
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hit:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-backports InRelease
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:4 https://deb.nodesource.com/node_16.x jammy InRelease [4583 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hit:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:6 https://deb.nodesource.com/node_16.x jammy/main amd64 Packages [776 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Fetched 5359 B in 1s (7322 B/s)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## Run `sudo apt-get install -y nodejs` to install Node.js 16.x and npm
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## You may also need development tools to build native addons:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:      sudo apt-get install gcc g++ make
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ## To install the Yarn package manager, run:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:      curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | gpg --dearmor | sudo tee /usr/share/keyrings/yarnkey.gpg >/dev/null
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:      echo "deb [signed-by=/usr/share/keyrings/yarnkey.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:      sudo apt-get update && sudo apt-get install yarn
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Building dependency tree...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading state information...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: The following NEW packages will be installed:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   nodejs
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: 0 upgraded, 1 newly installed, 0 to remove and 12 not upgraded.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Need to get 27.2 MB of archives.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: After this operation, 128 MB of additional disk space will be used.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:1 https://deb.nodesource.com/node_16.x jammy/main amd64 nodejs amd64 16.20.0-deb-1nodesource1 [27.2 MB]
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: unable to initialize frontend: Dialog
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: falling back to frontend: Readline
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: unable to initialize frontend: Readline
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: (This frontend requires a controlling tty.)
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: falling back to frontend: Teletype
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: dpkg-preconfigure: unable to re-open stdin:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Fetched 27.2 MB in 1s (51.5 MB/s)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package nodejs.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: (Reading database ... 64294 files and directories currently installed.)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../nodejs_16.20.0-deb-1nodesource1_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking nodejs (16.20.0-deb-1nodesource1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up nodejs (16.20.0-deb-1nodesource1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Processing triggers for man-db (2.10.2-1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Running kernel seems to be up-to-date.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No services need to be restarted.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No containers need to be restarted.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No user sessions are running outdated binaries.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- install build-essential -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Building dependency tree...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading state information...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: The following additional packages will be installed:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   bzip2 cpp cpp-11 dpkg-dev fakeroot fontconfig-config fonts-dejavu-core g++
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   g++-11 gcc gcc-11 gcc-11-base libalgorithm-diff-perl
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6 libatomic1
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libdpkg-perl libfakeroot libfile-fcntllock-perl libfontconfig1 libgcc-11-dev
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libgd3 libgomp1 libisl23 libitm1 libjbig0 libjpeg-turbo8 libjpeg8 liblsan0
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libmpc3 libnsl-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libtsan0 libubsan1 libwebp7 libxpm4 linux-libc-dev lto-disabled-list make
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   manpages-dev rpcsvc-proto
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Suggested packages:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   bzip2-doc cpp-doc gcc-11-locales debian-keyring g++-multilib g++-11-multilib
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   gcc-11-doc gcc-multilib autoconf automake libtool flex bison gdb gcc-doc
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   gcc-11-multilib glibc-doc bzr libgd-tools libstdc++-11-doc make-doc
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: The following NEW packages will be installed:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   build-essential bzip2 cpp cpp-11 dpkg-dev fakeroot fontconfig-config
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   fonts-dejavu-core g++ g++-11 gcc gcc-11 gcc-11-base libalgorithm-diff-perl
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libalgorithm-diff-xs-perl libalgorithm-merge-perl libasan6 libatomic1
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libc-dev-bin libc-devtools libc6-dev libcc1-0 libcrypt-dev libdeflate0
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libdpkg-perl libfakeroot libfile-fcntllock-perl libfontconfig1 libgcc-11-dev
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libgd3 libgomp1 libisl23 libitm1 libjbig0 libjpeg-turbo8 libjpeg8 liblsan0
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libmpc3 libnsl-dev libquadmath0 libstdc++-11-dev libtiff5 libtirpc-dev
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libtsan0 libubsan1 libwebp7 libxpm4 linux-libc-dev lto-disabled-list make
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   manpages-dev rpcsvc-proto
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: 0 upgraded, 52 newly installed, 0 to remove and 12 not upgraded.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Need to get 63.7 MB of archives.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: After this operation, 207 MB of additional disk space will be used.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Do you want to continue? [Y/n] Abort.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- install PM2 -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm WARN deprecated uuid@3.4.0: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: added 184 packages, and audited 185 packages in 8s
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: 12 packages are looking for funding
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   run `npm fund` for details
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: found 0 vulnerabilities
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm notice
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm notice New major version of npm available! 8.19.4 -> 9.6.5
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- install nginx -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm notice Changelog: <https://github.com/npm/cli/releases/tag/v9.6.5>
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading package lists...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm notice Run `npm install -g npm@9.6.5` to update!
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: npm notice
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Building dependency tree...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Reading state information...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: The following additional packages will be installed:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   fontconfig-config fonts-dejavu-core libdeflate0 libfontconfig1 libgd3
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip2
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 libtiff5
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libwebp7 libxpm4 nginx-common nginx-core
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Suggested packages:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libgd-tools fcgiwrap nginx-doc ssl-cert
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: The following NEW packages will be installed:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   fontconfig-config fonts-dejavu-core libdeflate0 libfontconfig1 libgd3
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libjbig0 libjpeg-turbo8 libjpeg8 libnginx-mod-http-geoip2
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libnginx-mod-http-image-filter libnginx-mod-http-xslt-filter
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libnginx-mod-mail libnginx-mod-stream libnginx-mod-stream-geoip2 libtiff5
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   libwebp7 libxpm4 nginx nginx-common nginx-core
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: 0 upgraded, 20 newly installed, 0 to remove and 12 not upgraded.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Need to get 2689 kB of archives.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: After this operation, 8335 kB of additional disk space will be used.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:1 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 fonts-dejavu-core all 2.37-2build1 [1041 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:2 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 fontconfig-config all 2.13.1-4.2ubuntu5 [29.1 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:3 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libdeflate0 amd64 1.10-2 [70.9 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:4 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libfontconfig1 amd64 2.13.1-4.2ubuntu5 [131 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:5 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libjpeg-turbo8 amd64 2.1.2-0ubuntu1 [134 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:6 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libjpeg8 amd64 8c-2ubuntu10 [2264 B]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:7 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libjbig0 amd64 2.1-3.1ubuntu0.22.04.1 [29.2 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:8 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libwebp7 amd64 1.2.2-2 [206 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:9 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libtiff5 amd64 4.3.0-6ubuntu0.4 [183 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:10 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libxpm4 amd64 1:3.5.12-1ubuntu0.22.04.1 [36.4 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:11 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy/main amd64 libgd3 amd64 2.3.0-2ubuntu2 [129 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:12 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-common all 1.18.0-6ubuntu14.3 [40.0 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:13 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-geoip2 amd64 1.18.0-6ubuntu14.3 [11.9 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:14 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-image-filter amd64 1.18.0-6ubuntu14.3 [15.4 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:15 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-http-xslt-filter amd64 1.18.0-6ubuntu14.3 [13.7 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:16 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-mail amd64 1.18.0-6ubuntu14.3 [45.7 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:17 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream amd64 1.18.0-6ubuntu14.3 [72.8 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:18 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 libnginx-mod-stream-geoip2 amd64 1.18.0-6ubuntu14.3 [10.1 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:19 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx-core amd64 1.18.0-6ubuntu14.3 [482 kB]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Get:20 http://us-west-2.ec2.archive.ubuntu.com/ubuntu jammy-updates/main amd64 nginx amd64 1.18.0-6ubuntu14.3 [3882 B]
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: unable to initialize frontend: Dialog
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: falling back to frontend: Readline
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: unable to initialize frontend: Readline
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: (This frontend requires a controlling tty.)
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: falling back to frontend: Teletype
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: dpkg-preconfigure: unable to re-open stdin:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Fetched 2689 kB in 0s (25.5 MB/s)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package fonts-dejavu-core.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: (Reading database ... 67497 files and directories currently installed.)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../00-fonts-dejavu-core_2.37-2build1_all.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking fonts-dejavu-core (2.37-2build1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package fontconfig-config.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../01-fontconfig-config_2.13.1-4.2ubuntu5_all.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking fontconfig-config (2.13.1-4.2ubuntu5) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libdeflate0:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../02-libdeflate0_1.10-2_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libdeflate0:amd64 (1.10-2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libfontconfig1:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../03-libfontconfig1_2.13.1-4.2ubuntu5_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libfontconfig1:amd64 (2.13.1-4.2ubuntu5) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libjpeg-turbo8:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../04-libjpeg-turbo8_2.1.2-0ubuntu1_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libjpeg-turbo8:amd64 (2.1.2-0ubuntu1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libjpeg8:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../05-libjpeg8_8c-2ubuntu10_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libjpeg8:amd64 (8c-2ubuntu10) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libjbig0:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../06-libjbig0_2.1-3.1ubuntu0.22.04.1_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libjbig0:amd64 (2.1-3.1ubuntu0.22.04.1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libwebp7:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../07-libwebp7_1.2.2-2_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libwebp7:amd64 (1.2.2-2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libtiff5:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../08-libtiff5_4.3.0-6ubuntu0.4_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libtiff5:amd64 (4.3.0-6ubuntu0.4) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libxpm4:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../09-libxpm4_1%3a3.5.12-1ubuntu0.22.04.1_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libxpm4:amd64 (1:3.5.12-1ubuntu0.22.04.1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libgd3:amd64.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../10-libgd3_2.3.0-2ubuntu2_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libgd3:amd64 (2.3.0-2ubuntu2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package nginx-common.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../11-nginx-common_1.18.0-6ubuntu14.3_all.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking nginx-common (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-http-geoip2.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../12-libnginx-mod-http-geoip2_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-http-image-filter.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../13-libnginx-mod-http-image-filter_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-http-image-filter (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-http-xslt-filter.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../14-libnginx-mod-http-xslt-filter_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-mail.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../15-libnginx-mod-mail_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-mail (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-stream.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../16-libnginx-mod-stream_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-stream (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package libnginx-mod-stream-geoip2.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../17-libnginx-mod-stream-geoip2_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package nginx-core.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../18-nginx-core_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking nginx-core (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Selecting previously unselected package nginx.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Preparing to unpack .../19-nginx_1.18.0-6ubuntu14.3_amd64.deb ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Unpacking nginx (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libxpm4:amd64 (1:3.5.12-1ubuntu0.22.04.1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libdeflate0:amd64 (1.10-2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up nginx-common (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: unable to initialize frontend: Dialog
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: debconf: falling back to frontend: Readline
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Created symlink /etc/systemd/system/multi-user.target.wants/nginx.service → /lib/systemd/system/nginx.service.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libjbig0:amd64 (2.1-3.1ubuntu0.22.04.1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-http-xslt-filter (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up fonts-dejavu-core (2.37-2build1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libjpeg-turbo8:amd64 (2.1.2-0ubuntu1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libwebp7:amd64 (1.2.2-2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-http-geoip2 (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libjpeg8:amd64 (8c-2ubuntu10) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-mail (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up fontconfig-config (2.13.1-4.2ubuntu5) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-stream (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libtiff5:amd64 (4.3.0-6ubuntu0.4) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libfontconfig1:amd64 (2.13.1-4.2ubuntu5) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-stream-geoip2 (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libgd3:amd64 (2.3.0-2ubuntu2) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up libnginx-mod-http-image-filter (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up nginx-core (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:  * Upgrading binary nginx
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:    ...done.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Setting up nginx (1.18.0-6ubuntu14.3) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Processing triggers for ufw (0.36.1-4build1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Processing triggers for man-db (2.10.2-1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Running kernel seems to be up-to-date.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No services need to be restarted.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No containers need to be restarted.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No user sessions are running outdated binaries.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- enable and start nginx -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Synchronizing state of nginx.service with SysV service script with /lib/systemd/systemd-sysv-install.
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Executing: /lib/systemd/systemd-sysv-install enable nginx
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- enable and start  PM2 -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Failed to enable unit: Unit file pm2.service does not exist.
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Failed to start pm2.service: Unit pm2.service not found.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- se copia archivos en nginx -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- reiniciando nginx -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: nginx: configuration file /etc/nginx/nginx.conf test is successful
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                         -------------
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: __/\\\\\\\\\\\\\____/\\\\____________/\\\\____/\\\\\\\\\_____
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:  _\/\\\/////////\\\_\/\\\\\\________/\\\\\\__/\\\///////\\\___
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   _\/\\\_______\/\\\_\/\\\//\\\____/\\\//\\\_\///______\//\\\__
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:    _\/\\\\\\\\\\\\\/__\/\\\\///\\\/\\\/_\/\\\___________/\\\/___
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:     _\/\\\/////////____\/\\\__\///\\\/___\/\\\________/\\\//_____
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:      _\/\\\_____________\/\\\____\///_____\/\\\_____/\\\//________
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:       _\/\\\_____________\/\\\_____________\/\\\___/\\\/___________
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:        _\/\\\_____________\/\\\_____________\/\\\__/\\\\\\\\\\\\\\\_
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:         _\///______________\///______________\///__\///////////////__
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                           Runtime Edition
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:         PM2 is a Production Process Manager for Node.js applications
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                      with a built-in Load Balancer.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 Start and Daemonize any application:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 $ pm2 start app.js
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 Load Balance 4 instances of api.js:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 $ pm2 start api.js -i 4
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 Monitor in production:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 $ pm2 monitor
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 Make pm2 auto-boot at server restart:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 $ pm2 startup
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 To go further checkout:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                 http://pm2.io/
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                         -------------
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Spawning PM2 daemon with pm2_home=/root/.pm2
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] PM2 Successfully daemonized
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Starting /etc/nginx/sites-available/server.js in fork_mode (1 instance)
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Done.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ┌────┬───────────┬─────────────┬─────────┬─────────┬──────────┬────────┬──────┬───────────┬──────────┬──────────┬──────────┬──────────┐
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: │ id │ name      │ namespace   │ version │ mode    │ pid      │ uptime │ ↺    │ status    │ cpu      │ mem      │ user     │ watching │
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ├────┼───────────┼─────────────┼─────────┼─────────┼──────────┼────────┼──────┼───────────┼──────────┼──────────┼──────────┼──────────┤
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: │ 0  │ server    │ default     │ N/A     │ fork    │ 3277     │ 0s     │ 0    │ online    │ 0%       │ 24.7mb   │ root     │ disabled │
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: └────┴───────────┴─────────────┴─────────┴─────────┴──────────┴────────┴──────┴───────────┴──────────┴──────────┴──────────┴──────────┘
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: server inicializado\n
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Init System found: systemd
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Platform systemd
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Template
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [Unit]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Description=PM2 process manager
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Documentation=https://pm2.keymetrics.io/
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: After=network.target
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [Service]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Type=forking
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: User=root
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: LimitNOFILE=infinity
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: LimitNPROC=infinity
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: LimitCORE=infinity
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Environment=PM2_HOME=/root/.pm2
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: PIDFile=/root/.pm2/pm2.pid
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Restart=on-failure
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ExecStart=/usr/lib/node_modules/pm2/bin/pm2 resurrect
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ExecReload=/usr/lib/node_modules/pm2/bin/pm2 reload all
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ExecStop=/usr/lib/node_modules/pm2/bin/pm2 kill
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [Install]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: WantedBy=multi-user.target
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Target path
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: /etc/systemd/system/pm2-root.service
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Command list
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [ 'systemctl enable pm2-root' ]
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Writing init configuration in /etc/systemd/system/pm2-root.service
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Making script booting at startup...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] [-] Executing: systemctl enable pm2-root...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Created symlink /etc/systemd/system/multi-user.target.wants/pm2-root.service → /etc/systemd/system/pm2-root.service.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] [v] Command successfully executed.
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +---------------------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Freeze a process list on reboot via:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: $ pm2 save
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Remove init script via:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: $ pm2 unstartup systemd
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: pm2 inicializado\n
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Saving current process list...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: [PM2] Successfully saved in /root/.pm2/dump.pm2
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: guardado\n
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- Inicio prueba -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Hello World ! for LUIS ANDRES OLARTE
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: ***** El servicio está arriba y funcionando correctamente. *****
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: +--------------------------- Fin script -------------------------+
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image:                                  Dload  Upload   Total   Spent    Left  Speed
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: 100    37  100    37    0     0   4180      0 --:--:-- --:--:-- --:--:--  4625
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Stopping the source instance...
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Stopping instance
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Waiting for the instance to stop...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Creating AMI ami_laoz_20230501T171702Z from instance i-071a31fd0acb4bb5f
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: AMI: ami-0ebde63c75420c1ca
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Waiting for AMI to become ready...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Skipping Enable AMI deprecation...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Adding tags to AMI (ami-0ebde63c75420c1ca)...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Tagging snapshot: snap-007638889236c0448
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Creating AMI tags
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Adding tag: "Distro": "ubuntu-jammy-22.04-amd64"
+    build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Adding tag: "Name": "AMI_LAOZ_20230501T171702Z"
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Creating snapshot tags
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Terminating the source AWS instance...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Cleaning up any extra volumes...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: No volumes to clean up, skipping
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Deleting temporary security group...
+==> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: Deleting temporary keypair...
+Build 'build_20230501T171702Z.amazon-ebs.ubuntu_ami_image' finished after 6 minutes 10 seconds.
+
+==> Wait completed after 6 minutes 10 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> build_20230501T171702Z.amazon-ebs.ubuntu_ami_image: AMIs were created:
+us-west-2: ami-0ebde63c75420c1ca
+
+PS E:\DevOps\parker-nginx-nodejs>
+fwd-i-search: _

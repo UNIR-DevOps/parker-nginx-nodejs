@@ -96,12 +96,58 @@ Al finalizar, ejecutar este comando:
 packer build aws.pkr.hcl
 ```
 
-## ¡Genial!
+## 5. Ejecución del proyecto
 
- Si todo se ejecutó sin errores, significa que has instalado correctamente el servidor MEAN (MongoDB, Express.js, Angular, Nginx, Node.js) y has creado un archivo de configuración de Nginx, así como un archivo de aplicación de ejemplo en Node.js. Ahora puedes acceder a tu servidor a través del nombre de dominio o la dirección IP que hayas configurado en la configuración de Nginx, y probar la funcionalidad de tu aplicación MEAN. Si tienes alguna pregunta o necesitas más ayuda, estaré encantado de asistirte.
+ Si todo se ejecutó sin errores, significa que has instalado correctamente el servidor (Nginx, pm2 y Node.js) y has creado un archivo de configuración de Nginx, así como un archivo de aplicación de ejemplo en Node.js. Ahora puedes acceder a tu servidor a través del nombre de dominio o la dirección IP que hayas configurado en la configuración de Nginx, y probar la funcionalidad de tu aplicación.
 
- Deberias ver algo similar a esto:
+Inicialmenete al ejecutar el script [aws.pkr.hcl](/aws.pkr.hcl) se conecta a la nube a traves de las credenciales de las variables de entorno y crea una nueva instancia a traves de las caracteristicas definidas en el source:
 
-![Tipo de acceso](/resources/img/successfully.png)
+![Evidencia 1](/resources/img/Carga1.png)
 
-**¡Buena suerte!**
+En este punto inicia el proceso de ejecución del script que se encuentra en [install.sh](resources/files/install.sh) e inicia con la actualización de la herramienta **"apt-get"** para instalar, actualizar y desinstalar paquetes de software desde los repositorios oficiales del sistema:
+
+![Evidencia 2](/resources/img/Carga2.png)
+
+En este punto inicia la ejecución del proceso de instación de **"Node.js"** que es  es un entorno de tiempo de ejecución de JavaScript que se utiliza principalmente para desarrollar aplicaciones web en el lado del servidor. Node.js es una plataforma de programación basada en eventos y se enfoca en la escalabilidad y el rendimiento:
+
+![Evidencia 3](/resources/img/Carga3.png)
+
+Finaliza el proceso de instalación de **"Node.js"**:
+
+![Evidencia 4](/resources/img/Carga4.png)
+
+Se actualiza el paquete **"build-essential"** que incluye una serie de herramientas y bibliotecas esenciales para compilar y construir programas desde su código fuente:
+
+![Evidencia 5](/resources/img/Carga5.png)
+
+Aquí instalamos el paquete **"PM2"** que se utiliza comúnmente con **"Nginx"** para gestionar y escalar aplicaciones **"Node.js"** en un entorno de producción.
+
+![Evidencia 6](/resources/img/Carga6.png)
+
+Instalación de la herramienta **"Nginx"** es un servidor web y proxy inverso, lo que significa que se utiliza para gestionar las solicitudes de los clientes y responder a ellas de manera eficiente:
+
+![Evidencia 7](/resources/img/Carga7.png)
+
+Finaliza el proceso de instalación de **"Nginx"**:
+
+![Evidencia 8](/resources/img/Carga8.png)
+
+En esta imagen se ve como inicia y se habilita el paquete **"Nginx"**, seguido se copian dos archivos desde el directorio **"resources/files"** **"server.js"** y **"default"**:
+
+![Evidencia 9](/resources/img/Carga9.png)
+
+Finalmente se reinicia el paquete **"PM2"**:
+
+![Evidencia 11](/resources/img/Carga11.png)
+
+En este punto vemos que se finaliza la ejecución del script y al final el mensaje de creación exitosa del **"AMI"** entregado por **"AWS"**:
+
+![Evidencia 10](/resources/img/Carga10.png)
+
+En este apartado he resaltado el mensaje de ejecución exitosa del comando  **"curl"** que usamos para recuperar la respuesta del servicio que fue instalado en servidor  **"EC2"** de  **"AWS"** seguido del resultado de la prueba en color verde.
+
+![Evidencia 10](/resources/img/Carga12.png)
+
+El texto completo de la ejecución del proceso se encuentra en la ruta: [Logs](/logs/Windows%20PowerShell%20Packer%20build.txt)
+
+Si tienes alguna pregunta o necesitas más ayuda, estaré encantado de ayudarte.
