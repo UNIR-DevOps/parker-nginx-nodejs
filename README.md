@@ -1,5 +1,10 @@
 ﻿<!-- Para el código inicial del proyecto ver la siguiente ruta https://youtu.be/eMmRrpTrN0c -->
+
+## Toda esta documentación esta disponible en el sitio https://github.com/UNIR-DevOps/parker-nginx-nodejs
+
 # parker nginx nodejs
+
+
 
 Esta plantilla de Packer utiliza el builder de **Amazon EBS** para crear una imagen de **Amazon Machine Image (AMI)** de AWS. Luego, utiliza los provisioners de shell para instalar **Node.js, npm, pm2 y Nginx** en la instancia, clonar el repositorio de la aplicación Node.js desde la URL especificada, instalar las dependencias de la aplicación, iniciar la aplicación con pm2 y configurar pm2 y Nginx para que se inicien automáticamente en el arranque del sistema.
 
@@ -147,6 +152,40 @@ En este punto vemos que se finaliza la ejecución del script y al final el mensa
 En este apartado he resaltado el mensaje de ejecución exitosa del comando  **"curl"** que usamos para recuperar la respuesta del servicio que fue instalado en servidor  **"EC2"** de  **"AWS"** seguido del resultado de la prueba en color verde.
 
 ![Evidencia 10](/resources/img/Carga12.png)
+
+Listado de AMI creadas con el proyecto:
+
+![AWS%20AMIS](/resources/img/AWS%20AMIS.png)
+
+Configuración de grupo de seguridad reglas de entrada:
+
+![AWS%20Grupo%20de%20seguridad%20entrada](/resources/img/AWS%20Grupo%20de%20seguridad%20entrada.png)
+
+Configuración de grupo de seguridad reglas de salida:
+
+![AWS%20Grupo%20de%20seguridad%20salida](/resources/img/AWS%20Grupo%20de%20seguridad%20salida.png)
+
+Listado de instancias del AMI con la instancia ejecutandose:
+
+![AWS%20Listado%20de%20instancias](/resources/img/AWS%20Listado%20de%20instancias.png)
+
+Listado de instancias mostrando la configuración de la instancia:
+
+![AWS%20instancia%20ejecutando](/resources/img/AWS%20instancia%20ejecutando.png)
+
+Lanzando la instancia para pruebas:
+
+![AWS%20Lnzar%20instancia](/resources/img/AWS%20Lnzar%20instancia.png)
+
+Evidencia de la ejecución al lanzar la instancia:
+
+![AWS%20Mensaje%20en%20la%20instancia](/resources/img/AWS%20Mensaje%20en%20la%20instancia.png)
+
+Evidencia de la ejecución del servicio en el navegador:
+
+![AWS%20apuntando%20al%20servicio%20desde%20el%20navegador](/resources/img/AWS%20apuntando%20al%20servicio%20desde%20el%20navegador.png)
+
+
 
 El texto completo de la ejecución del proceso se encuentra en la ruta: [Logs](/logs/Windows%20PowerShell%20Packer%20build.txt)
 
